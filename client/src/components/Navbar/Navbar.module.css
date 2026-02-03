@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Alex+Brush&family=Dancing+Script:wght@400..700&family=Manrope:wght@200..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+.navbar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: rgba(249, 247, 242, 0.95);
+  backdrop-filter: blur(5px);
+  z-index: 1000;
+  border-bottom: 1px solid var(--color-lines);
+}
+
+.logo {
+  font-family: "Dancing Script", cursive;
+  font-size: 3rem;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+/* Links Container - Desktop default */
+.links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.link {
+  font-family: "Quicksand", sans-serif;
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border-bottom: 2px solid transparent;
+}
+
+.link:hover {
+  border-bottom: 2px solid var(--color-accent);
+  color: var(--color-accent);
+}
+
+.ctaBtn {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 0.5rem 1.5rem;
+  font-family: "Quicksand", sans-serif;
+  border: 2px solid #000;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 80% 30% 60% 30% / 40% 25% 60% 75%;
+  transition: transform 0.2s ease;
+  outline: none;
+}
+
+.ctaBtn:hover {
+  transform: scale(1.1);
+  border-radius: 25px 255px 25px 225px / 225px 25px 255px 25px;
+}
+
+/* Hamburger - Hidden on Desktop */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.bar,
+.barOpen {
+  width: 25px;
+  height: 3px;
+  background-color: var(--color-primary);
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+  }
+
+  .logo {
+    font-size: 2rem;
+  }
+
+  /* Show Hamburger on Mobile */
+  .hamburger {
+    display: flex;
+    z-index: 1001; /* Above the menu overlay */
+  }
+
+  /* Transform Hamburger to X when open */
+  .barOpen:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .barOpen:nth-child(2) {
+    opacity: 0;
+  }
+  .barOpen:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* Mobile Menu Overlay */
+  .links {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    background-color: var(--color-paper);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+    opacity: 0;
+  }
+
+  .links.active {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .link {
+    font-size: 1.5rem;
+  }
+}

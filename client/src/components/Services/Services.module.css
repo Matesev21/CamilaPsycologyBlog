@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap");
+
+.services {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  max-width: 1300px;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: -75px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2.5rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background-color: var(--color-sticky);
+  padding: 2rem 1.5rem;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+/* Organic Rotation */
+.card:nth-child(odd) {
+  transform: rotate(-2deg);
+}
+
+.card:nth-child(even) {
+  transform: rotate(2deg);
+}
+
+.card:hover {
+  transform: scale(1.02) rotate(2deg);
+  z-index: 10;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.15);
+}
+.card:nth-child(even):hover {
+  transform: scale(1.02) rotate(-2deg);
+}
+
+/* Washi Tape Effect */
+.card::before {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 120px;
+  height: 35px;
+  background-color: rgba(
+    105,
+    66,
+    14,
+    0.5
+  ); /* var(--color-accent) with opacity */
+  z-index: 1;
+  /* Add a subtle texture or ragged edge if possible, simple for now */
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.card:nth-child(even)::before {
+  transform: translateX(-50%) rotate(1deg);
+  background-color: rgba(
+    104,
+    76,
+    10,
+    0.5
+  ); /* var(--color-primary) with opacity for variety */
+}
+
+.cardTitle {
+  font-family: "Gochi Hand", cursive;
+  font-size: 1.8rem;
+  font-weight: 200;
+  color: var(--color-text);
+  margin: 0;
+  margin-bottom: 0.5rem;
+}
+
+.emoji {
+  margin-bottom: 1rem;
+  display: inline-block;
+  width: 3.2rem;
+  height: 3.2rem;
+}
+.emoji img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.description {
+  font-family: "Quicksand", sans-serif;
+  color: #555;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin: 0;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .services {
+    padding: 2rem 1rem;
+  }
+
+  .grid {
+    gap: 2rem;
+  }
+}

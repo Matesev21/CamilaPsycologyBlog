@@ -1,0 +1,14 @@
+# Dependencias
+node_modules/
+
+# Producción
+dist/
+build/
+out/
+
+# Variables de entorno (¡Súper importante si luego usas bases de datos!)
+.env
+.env.local
+
+# Archivos de sistema
+.DS_Store

@@ -1,0 +1,40 @@
+:root {
+  --color-paper: #f9f7f2;
+  --color-primary: #2e5c55;
+  --color-accent: #cb8672;
+  --color-sticky: rgba(226, 209, 175, 0.4);
+  --color-text: #333333;
+  --color-lines: #e5e0d8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Quicksand", sans-serif;
+  background-color: var(--color-paper);
+  color: var(--color-text);
+  min-height: 100vh;
+  /* Notebook effect */
+  border-left: 12px double var(--color-lines);
+  padding-left: 2rem;
+}
+
+@media (max-width: 768px) {
+  body {
+    border-left: 6px double var(--color-lines);
+    padding-left: 1rem;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Patrick Hand", cursive;
+  color: var(--color-primary);
+}
