@@ -35,11 +35,7 @@ const Navbar = () => {
         >
           Sobre Mí
         </a>
-        <a
-          href="#services"
-          className={styles.link}
-          onClick={() => setIsMenuOpen(false)}
-        >
+        <a href="" className={styles.link} onClick={() => setIsMenuOpen(false)}>
           Servicios
         </a>
         <a

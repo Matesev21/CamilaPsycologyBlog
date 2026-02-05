@@ -4,11 +4,11 @@ import CamiImg from "../../Images/CamiNavasProfile.png";
 
 const Hero = () => {
   return (
-    <section className={styles.hero}>
+    <section className={styles.hero} id="home">
       <div className={styles.leftColumn}>
         <h1 className={styles.title}>Tu bienestar es lo </h1>
         <h1 className={styles.title}>
-          <span className={styles.highlight}>primero, sin juicios</span>.
+          <span className={styles.highlight}>PRIMERO</span>.
         </h1>
         <span className={styles.subtitle}>
           Acompañamiento psicológico online, cercano y humano.

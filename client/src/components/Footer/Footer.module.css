@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap");
+
+.footer {
+  padding: 3rem 2rem;
+  background-color: var(--color-paper);
+  border-top: 4px double var(--color-lines);
+  margin-top: 4rem;
+}
+
+.contentWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.brandColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.brandTitle {
+  font-family: "Gochi Hand", cursive;
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  margin: 0;
+}
+
+.brandSubtitle {
+  font-family: "Quicksand", sans-serif;
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+}
+
+.linksColumn {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.link {
+  font-family: "Quicksand", sans-serif;
+  text-decoration: none;
+  color: #444;
+  font-weight: 500;
+  transition: color 0.2s;
+  cursor: pointer;
+}
+
+.link:hover {
+  color: var(--color-primary);
+}
+
+.socialColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.madeWith {
+  font-family: "Quicksand", sans-serif;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.iconLink {
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+.iconLink:hover {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .contentWrapper {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  .socialColumn {
+    align-items: center;
+  }
+}

@@ -5,68 +5,102 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 4rem;
-  flex-wrap: wrap; /* Standard wrap: Text first, Image second. On narrow screens they stack. */
-  max-width: 1300px;
-  margin: 0 auto;
+  /* Background could be added here if needed, currently white/transparent */
 }
 
-.textColumn {
-  flex: 1;
-  max-width: 600px;
-  min-width: 300px; /* Ensure it doesn't get too squashed */
+/* The Paper Card */
+.paper {
+  position: relative;
+  max-width: 950px;
+  width: 100%;
+  padding: 1.5rem;
+
+  /* Hand-cut look border radius */
+  border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+
+  /* Lined Paper Background */
+  background-color: #fffcf5;
+  background-image: repeating-linear-gradient(
+    transparent,
+    transparent 29px,
+    #a4b0be 30px
+  );
+  /* Depth */
+  box-shadow: 10px 8px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
-.photoColumn {
-  flex: 1;
-  max-width: 400px;
-  min-width: 300px;
-  display: flex;
-  justify-content: center;
+/* Washi Tape Styles */
+.tape {
+  position: absolute;
+  width: 80px;
+  height: 25px;
+  background-color: rgba(203, 134, 114, 0.7); /* Terracotta transparent */
+  z-index: 10;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
+/* Tape Positions */
+.topLeft {
+  top: -10px;
+  left: -25px;
+  transform: rotate(-45deg);
+}
+
+.topRight {
+  top: -10px;
+  right: -25px;
+  transform: rotate(45deg);
+}
+
+.bottomLeft {
+  bottom: -10px;
+  left: -25px;
+  transform: rotate(45deg);
+}
+
+.bottomRight {
+  bottom: -10px;
+  right: -25px;
+  transform: rotate(-45deg);
+}
+
+/* Typography */
 .title {
   font-family: "Gochi Hand", cursive;
-  font-size: 2.5rem;
-  color: var(--color-primary);
-  margin-bottom: 1.5rem;
+  font-size: 2.8rem;
+  color: black;
+  margin-bottom: 2rem;
+  /* Ensure title doesn't break the line rhythm too much */
 }
 
 .paragraph {
   font-family: "Quicksand", sans-serif;
   font-size: 1.1rem;
-  line-height: 1.6;
+  line-height: 30px; /* MATCHES BACKGROUND GRADIENT SIZE */
   color: #444;
-  margin-bottom: 1rem;
+  margin-bottom: 30px; /* Keeps margin consistent with lines */
+  text-align: left;
 }
 
-/* Marker Highlight */
+/* Highlight Effect */
 .highlight {
-  background-color: var(--color-sticky);
+  background-color: rgba(224, 215, 81, 0.7);
   border-radius: 4px;
   padding: 0 4px;
-  display: inline-block; /* Helps with padding rendering on line breaks */
-}
-
-/* Polaroid Photo Effect */
-.polaroid {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  border: 12px solid white;
-  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.15);
-  transform: rotate(3deg);
-  transition: transform 0.3s ease;
-}
-
-.polaroid:hover {
-  transform: rotate(0deg) scale(1.02);
 }
 
 @media (max-width: 768px) {
   .section {
-    padding: 3rem 1.5rem;
-    gap: 2rem;
-    text-align: center;
+    padding: 3rem 1rem;
+  }
+
+  .paper {
+    padding: 2rem 1.5rem;
+  }
+
+  .tape {
+    width: 60px;
+    height: 20px;
   }
 }

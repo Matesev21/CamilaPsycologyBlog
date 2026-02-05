@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap");
+
+.section {
+  padding: 4rem 2rem;
+  text-align: center;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.title {
+  font-family: "Gochi Hand", cursive;
+  font-size: 2.5rem;
+  color: black;
+  margin-bottom: 4rem;
+}
+
+.stepsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.stepCard {
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  flex: 1;
+  min-width: 200px;
+}
+.connector {
+  position: absolute;
+  /* Alinea el inicio de la flecha con la altura de tus iconos */
+  top: 20px;
+  /* Hace que el SVG empiece en el borde derecho de la card y se extienda hasta la siguiente */
+  left: 85%;
+  width: 35%; /* Este ancho debe ser similar al 'gap' de .steps */
+  height: 60px;
+  overflow: visible;
+  pointer-events: none;
+}
+.iconWrapper {
+  width: 80px;
+  height: 80px;
+  background-color: white;
+  border: 2px dashed black;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  position: relative;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.05);
+  z-index: 2; /* Keep above connector */
+}
+
+/* Step Number */
+.stepNumber {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: var(--color-accent);
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Quicksand", sans-serif;
+  font-weight: bold;
+}
+
+.stepTitle {
+  font-family: "Gochi Hand", cursive;
+  font-size: 1.5rem;
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+}
+
+.stepDescription {
+  font-family: "Quicksand", sans-serif;
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+@media (max-width: 770px) {
+  .connector {
+    display: none;
+  }
+}

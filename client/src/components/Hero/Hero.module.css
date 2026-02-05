@@ -36,7 +36,7 @@
 
 .subtitle {
   font-family: "Quicksand", sans-serif;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   color: #212020;
   margin-bottom: 2rem;
   line-height: 1.6;
@@ -146,7 +146,7 @@
   }
 
   .rightColumn {
-    margin-top: -40px;
+    margin-top: -35px;
     justify-content: center;
   }
 
