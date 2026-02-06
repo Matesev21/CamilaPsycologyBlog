@@ -46,9 +46,13 @@ const Navbar = () => {
           Blog
         </a>
 
-        <button className={styles.ctaBtn} onClick={() => setIsMenuOpen(false)}>
+        <a
+          className={styles.ctaBtn}
+          onClick={() => setIsMenuOpen(false)}
+          href="https://wa.me/593996466386?text=Hola%20quisiera%20agendar%20una%20cita"
+        >
           Agendar Cita
-        </button>
+        </a>
       </div>
     </nav>
   );

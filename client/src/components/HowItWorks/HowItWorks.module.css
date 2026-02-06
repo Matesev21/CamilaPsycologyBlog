@@ -89,7 +89,7 @@
   line-height: 1.4;
 }
 
-@media (max-width: 770px) {
+@media (max-width: 774px) {
   .connector {
     display: none;
   }

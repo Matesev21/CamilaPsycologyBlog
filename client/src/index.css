@@ -17,15 +17,28 @@ body {
   background-color: var(--color-paper);
   color: var(--color-text);
   min-height: 100vh;
-  /* Notebook effect */
-  border-left: 12px double var(--color-lines);
+  /* Notebook effect 
+  border-left: 12px double var(--color-accent);*/
   padding-left: 2rem;
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 10px; /*Separecion izquierda*/
+  /*Doble Linea */
+  width: 9px;
+  border-left: 6px solid rgb(141, 137, 137);
+  border-right: 6px solid var(--color-accent);
 }
 
 @media (max-width: 768px) {
-  body {
-    border-left: 6px double var(--color-lines);
-    padding-left: 1rem;
+  body::before {
+    left: 16px;
+    width: 6px;
+    border-left: 3.1px solid rgb(141, 137, 137);
+    border-right: 3.1px solid var(--color-accent);
   }
 }
 

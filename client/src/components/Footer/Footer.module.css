@@ -1,20 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap");
 
 .footer {
-  padding: 3rem 2rem;
-  background-color: var(--color-paper);
-  border-top: 4px double var(--color-lines);
-  margin-top: 4rem;
-}
-
-.contentWrapper {
+  padding: 2rem 2rem;
+  background-color: rgb(245, 221, 151);
+  margin-top: 2rem;
+  margin-left: -2rem;
+  position: relative; /*Eliminamos las dobles lineas en footer*/
+  z-index: 100;
+  padding-left: 2rem;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 1rem;
+}
+.contentWrapper {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
   flex-wrap: wrap;
   gap: 2rem;
-  max-width: 1000px;
+  max-width: 1250px;
   margin: 0 auto;
+  margin-bottom: 1rem;
 }
 
 .brandColumn {
@@ -25,14 +31,14 @@
 .brandTitle {
   font-family: "Gochi Hand", cursive;
   font-size: 1.5rem;
-  color: var(--color-primary);
+  color: black;
   margin: 0;
 }
 
 .brandSubtitle {
   font-family: "Quicksand", sans-serif;
   font-size: 0.9rem;
-  color: #666;
+  color: black;
   margin: 0;
 }
 
@@ -44,14 +50,15 @@
 .link {
   font-family: "Quicksand", sans-serif;
   text-decoration: none;
-  color: #444;
+  color: #000000;
   font-weight: 500;
   transition: color 0.2s;
   cursor: pointer;
 }
 
 .link:hover {
-  color: var(--color-primary);
+  border-bottom: 2px solid var(--color-accent);
+  color: var(--color-accent);
 }
 
 .socialColumn {
@@ -61,10 +68,11 @@
   gap: 0.5rem;
 }
 
-.madeWith {
-  font-family: "Quicksand", sans-serif;
-  font-size: 0.9rem;
-  color: #666;
+.followMe {
+  font-family: "Gochi Hand", cursive;
+  font-size: 1.6rem;
+  color: #000000;
+  font-weight: 550;
 }
 
 .icons {
@@ -73,25 +81,68 @@
 }
 
 .iconLink {
-  color: var(--color-primary);
+  color: rgb(141, 82, 24);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.2s;
+  transition: transform 0.3s;
+  font-size: 1.7rem;
 }
 
 .iconLink:hover {
   transform: translateY(-2px);
 }
+.below {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  max-width: 1250px;
+  margin: 0 auto;
+}
+.copyright {
+  font-family: "Quicksand", sans-serif;
+  font-size: 0.9rem;
+  color: black;
+  margin: 0;
+}
+.text {
+  font-family: "Gochi Hand", cursive;
+  font-size: 1.4rem;
+  color: black;
+  margin: 0;
+}
 
 @media (max-width: 768px) {
   .contentWrapper {
-    flex-direction: column;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
     text-align: center;
     gap: 1.5rem;
   }
 
   .socialColumn {
     align-items: center;
+  }
+  .linksColumn {
+    display: none;
+  }
+  .brandTitle {
+    font-size: 1.6rem;
+  }
+  .brandSubtitle {
+    font-size: 1.3rem;
+  }
+  .iconLink {
+    font-size: 1.8rem;
+  }
+  .followMe {
+    font-size: 1.8rem;
+  }
+  .below {
+    gap: 0.2rem;
+    display: flex;
+    flex-direction: column;
   }
 }
