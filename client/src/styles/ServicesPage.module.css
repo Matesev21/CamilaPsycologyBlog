@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap");
+.section {
+  padding: 2rem 2rem;
+  max-width: 1300px;
+  margin: 0 auto;
+  margin-top: -30px;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.header::after {
+  content: "";
+  position: absolute;
+  top: 45px;
+  right: -50px;
+  width: 40vw;
+  height: 40vw;
+  max-height: 400px;
+  max-width: 400px;
+  background-image: url(../Images/plant2.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.15;
+  /* Rotamos y espejamos la hoja para que se vea orgánica */
+  transform: rotate(110deg) scaleX(-1);
+  pointer-events: none;
+  z-index: 0;
+}
+.titleContainer {
+  max-width: 800px;
+}
+
+.title {
+  font-family: "Patrick Hand", cursive;
+  font-size: 4rem;
+  color: black;
+  margin-bottom: 0.5rem;
+  position: relative;
+  display: inline-block;
+}
+
+/* Brush stroke underline effect */
+.title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 100%;
+  height: 20px;
+  border: 8px solid rgb(43, 152, 31);
+  border-top: none; /* Removes top border to make it a U */
+  border-right: none;
+  border-left: none;
+  border-radius: 0 0 15% 25%; /* Rounded bottom corners */
+  transform: rotate(-1.5deg);
+  z-index: -1;
+}
+
+.subtitle {
+  font-family: "Gochi Hand", sans-serif;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.wreathImage {
+  width: 350px;
+  height: auto;
+  opacity: 0.8;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  margin-top: -40px;
+}
+
+@media (max-width: 768px) {
+  .header {
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    margin-bottom: 5rem;
+  }
+  .header::before,
+  .header::after,
+  .wreathImage {
+    display: none;
+  }
+}

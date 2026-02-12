@@ -1,10 +1,10 @@
 import React from "react";
-import styles from "./Services.module.css";
+import styles from "./StickyNotes.module.css";
 import AnsiedadEmoji from "../../Images/AnsiedadEmoji.svg";
 import AutoestimaEmoji from "../../Images/AutoestimaEmoji.svg";
 import VinculosEmoji from "../../Images/VinculosEmoji.svg";
 
-const Services = () => {
+const StickyNotes = () => {
   const services = [
     {
       title: "Ansiedad y Estrés",
@@ -40,4 +40,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default StickyNotes;

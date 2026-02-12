@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
 const Navbar = () => {
@@ -10,9 +11,9 @@ const Navbar = () => {
 
   return (
     <nav className={styles.navbar}>
-      <a href="/" className={styles.logo}>
+      <Link to="/" className={styles.logo}>
         Camila Navas
-      </a>
+      </Link>
 
       <div className={styles.hamburger} onClick={toggleMenu}>
         <span className={isMenuOpen ? styles.barOpen : styles.bar}></span>
@@ -21,25 +22,29 @@ const Navbar = () => {
       </div>
 
       <div className={`${styles.links} ${isMenuOpen ? styles.active : ""}`}>
-        <a
-          href="#home"
+        <Link
+          to="/"
           className={styles.link}
           onClick={() => setIsMenuOpen(false)}
         >
           Inicio
-        </a>
+        </Link>
         <a
-          href="#about"
+          href="/#about"
           className={styles.link}
           onClick={() => setIsMenuOpen(false)}
         >
           Sobre Mí
         </a>
-        <a href="" className={styles.link} onClick={() => setIsMenuOpen(false)}>
+        <Link
+          to="/servicios"
+          className={styles.link}
+          onClick={() => setIsMenuOpen(false)}
+        >
           Servicios
-        </a>
+        </Link>
         <a
-          href="#blog"
+          href="/#blog"
           className={styles.link}
           onClick={() => setIsMenuOpen(false)}
         >

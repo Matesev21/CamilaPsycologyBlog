@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Footer.module.css";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
@@ -9,7 +10,7 @@ import { faLinktree } from "@fortawesome/free-brands-svg-icons";
 const Footer = () => {
   return (
     <footer className={styles.footer}>
-      <div classname={styles.above}>
+      <div className={styles.above}>
         <div className={styles.contentWrapper}>
           {/* Left: Brand */}
           <div className={styles.brandColumn}>
@@ -19,15 +20,15 @@ const Footer = () => {
 
           {/* Center: Links */}
           <div className={styles.linksColumn}>
-            <a href="#" className={styles.link}>
+            <Link to="/" className={styles.link}>
               Inicio
-            </a>
-            <a href="" className={styles.link}>
+            </Link>
+            <Link to="/servicios" className={styles.link}>
               Servicios
-            </a>
-            <a href="" className={styles.link}>
+            </Link>
+            <Link to="/" className={styles.link}>
               Blog
-            </a>
+            </Link>
           </div>
 
           {/* Right: Social & Info */}
@@ -61,7 +62,7 @@ const Footer = () => {
               </a>
               {/* Linketree Icon */}
               <a
-                href="mailto:camilanavaspsi@gmail.com"
+                href="https://linktr.ee/camilanavaspsi?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGn6UNiyqVwsIBfnLBq0UCuYinz98jvce7DszXx6aNpou9OjbW4NHT8Xub2kks_aem_6HCHPzsPPQ3L8qvVylvvbA"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.iconLink}
