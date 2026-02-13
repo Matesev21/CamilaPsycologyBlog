@@ -1,25 +1,36 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useState } from "react";
 import styles from "./BlogPreview.module.css";
 
 const BlogPreview = () => {
-  const posts = [
-    {
-      title: "5 Tips para la Calma",
-      image: "https://placehold.co/200x200",
-      excerpt: "Pequeñas acciones diarias que transforman tu bienestar.",
-    },
-    {
-      title: "Entendiendo tus Emociones",
-      image: "https://placehold.co/200x200",
-      excerpt: "Validar lo que sientes es el primer paso.",
-    },
-    {
-      title: "El Poder de la Rutina",
-      image: "https://placehold.co/200x200",
-      excerpt: "Cómo los hábitos construyen salud mental.",
-    },
-  ];
+  const [posts, setPost] = useState([]);
+  const [loading, setLoading] = useState(true);
 
+  const token = import.meta.env.VITE_INSTAGRAM_TOKEN;
+  const id = import.meta.env.VITE_INSTAGRAM_ID;
+  console.log(id);
+
+  useEffect(() => {
+    const fetchInstagram = async () => {
+      try {
+        const url = `https://graph.facebook.com/v19.0/${id}/media?fields=id,caption,media_type,media_url,thumbnail_url,permalink&limit=3&access_token=${token}`; /*url de la api*/
+        const res = await fetch(url);
+        const result = await res.json();
+
+        if (result.data) {
+          setPost(result.data);
+        }
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchInstagram();
+  }, [id, token]);
+  if (loading) {
+    return <div>Loading...</div>;
+  }
   return (
     <section className={styles.section} id="blog">
       <div className={styles.header}>
@@ -27,7 +38,6 @@ const BlogPreview = () => {
           Explora cómo puedo acompañarte en cada proceso ➡
         </h2>
       </div>
-
       <div className={styles.grid}>
         {posts.map((post, index) => (
           <div key={index} className={styles.card}>
@@ -60,10 +70,27 @@ const BlogPreview = () => {
                 </linearGradient>
               </defs>
             </svg>
-            <img src={post.image} alt={post.title} className={styles.image} />
-            <h3 className={styles.cardTitle}>{post.title}</h3>
-            <p className={styles.excerpt}>{post.excerpt}</p>
-            <button className={styles.readMore}>Leer más</button>
+            <img
+              src={
+                post.media_type === "VIDEO"
+                  ? post.thumbnail_url
+                  : post.media_url
+              }
+              alt="Instagram Post"
+              className={styles.image}
+            />
+            <p className={styles.caption}>
+              {post.caption ? post.caption.slice(0, 110) + "...." : ""}
+            </p>
+            <a
+              key={post.id}
+              href={post.permalink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.readMore}
+            >
+              Leer más
+            </a>
           </div>
         ))}
       </div>
