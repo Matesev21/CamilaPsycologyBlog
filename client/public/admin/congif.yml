@@ -1,0 +1,50 @@
+# 1. Configuración del Backend (Conexión segura con GitHub vía Netlify)
+backend:
+  name: git-gateway
+  branch: main # Cambia a 'master' si tu rama en GitHub se llama así
+
+# 2. La red de seguridad de Camila (Le permite guardar "Borradores")
+publish_mode: editorial_workflow
+
+# 3. ¿Dónde se guardan las fotos que ella suba?
+media_folder: "client/public/images/blog" # Dónde guarda las fotos en el código
+public_folder: "/images/blog" # Cómo las lee React en la web
+
+# 4. Las colecciones (Las secciones de su panel)
+collections:
+  - name: "diario"
+    label: "Diario y Reflexiones"
+    label_singular: "Reflexión"
+    folder: "client/src/content/blog" # Aquí se crearán los archivos de texto (.md)
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Nombre automático del archivo
+
+    # 5. Los campos que ella llenará en su pantalla
+    fields:
+      - { label: "Título de la Reflexión", name: "title", widget: "string" }
+      - {
+          label: "Fecha",
+          name: "date",
+          widget: "datetime",
+          format: "YYYY-MM-DD",
+          date_format: "DD/MM/YYYY",
+        }
+      - {
+          label: "Categoría",
+          name: "categoria",
+          widget: "select",
+          options:
+            [
+              "Mindfulness",
+              "Crecimiento Personal",
+              "Terapia Individual",
+              "Herramientas Prácticas",
+            ],
+        }
+      - {
+          label: "Imagen de Portada",
+          name: "imagen",
+          widget: "image",
+          required: false,
+        }
+      - { label: "Contenido", name: "body", widget: "markdown" }

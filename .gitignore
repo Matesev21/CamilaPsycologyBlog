@@ -12,3 +12,5 @@ out/
 
 # Archivos de sistema
 .DS_Store
+# Local Netlify folder
+.netlify

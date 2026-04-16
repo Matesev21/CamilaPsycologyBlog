@@ -1,0 +1,57 @@
+.wrapper {
+  width: 100%;
+  margin-top: 5rem;
+  padding: 4rem 2rem;
+  background-color: var(--color-paper, #fdfaf6);
+  text-align: center;
+}
+
+.title {
+  font-family: var(--font-secondary, 'Quicksand', sans-serif);
+  font-weight: 600;
+  margin-bottom: 3rem;
+  font-size: 1.5rem;
+  color: var(--color-text, #333);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.image {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.image:hover {
+  transform: scale(1.03);
+}
+
+.buttonContainer {
+  margin-top: 3rem;
+}
+
+.button {
+  background-color: var(--color-accent, #5C8150); /* Solid green pill button */
+  color: white;
+  border: none;
+  padding: 0.8rem 2.5rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: var(--color-accent-dark, #4a6840);
+}

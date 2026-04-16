@@ -2,24 +2,22 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import styles from "./BlogPreview.module.css";
 
-const BlogPreview = () => {
+const BlogPreview = ({ limit = 3 }) => {
   const [posts, setPost] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  const token = import.meta.env.VITE_INSTAGRAM_TOKEN;
-  const id = import.meta.env.VITE_INSTAGRAM_ID;
-  console.log(id);
 
   useEffect(() => {
     const fetchInstagram = async () => {
       try {
-        const url = `https://graph.facebook.com/v19.0/${id}/media?fields=id,caption,media_type,media_url,thumbnail_url,permalink&limit=3&access_token=${token}`; /*url de la api*/
-        const res = await fetch(url);
-        const result = await res.json();
+        const res = await fetch(
+          `/.netlify/functions/getInstagramData?limit=${limit}`,
+        );
 
-        if (result.data) {
-          setPost(result.data);
+        if (!res.ok) {
+          throw new Error("Error de servidor");
         }
+        const data = await res.json();
+        setPost(data);
       } catch (error) {
         console.log(error);
       } finally {
@@ -27,7 +25,7 @@ const BlogPreview = () => {
       }
     };
     fetchInstagram();
-  }, [id, token]);
+  }, [limit]);
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -39,8 +37,8 @@ const BlogPreview = () => {
         </h2>
       </div>
       <div className={styles.grid}>
-        {posts.map((post, index) => (
-          <div key={index} className={styles.card}>
+        {posts.map((post) => (
+          <div key={post.id} className={styles.card}>
             <svg
               className={styles.paperclip}
               viewBox="0 0 24 24"
@@ -71,20 +69,14 @@ const BlogPreview = () => {
               </defs>
             </svg>
             <img
-              src={
-                post.media_type === "VIDEO"
-                  ? post.thumbnail_url
-                  : post.media_url
-              }
+              src={post.image}
               alt="Instagram Post"
               className={styles.image}
             />
-            <p className={styles.caption}>
-              {post.caption ? post.caption.slice(0, 110) + "...." : ""}
-            </p>
+            <p className={styles.caption}>{post.text}</p>
             <a
               key={post.id}
-              href={post.permalink}
+              href={post.link}
               target="_blank"
               rel="noopener noreferrer"
               className={styles.readMore}

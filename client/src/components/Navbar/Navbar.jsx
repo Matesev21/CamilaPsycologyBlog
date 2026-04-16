@@ -43,13 +43,13 @@ const Navbar = () => {
         >
           Servicios
         </Link>
-        <a
-          href="/#blog"
+        <Link
+          to="/blog"
           className={styles.link}
           onClick={() => setIsMenuOpen(false)}
         >
           Blog
-        </a>
+        </Link>
 
         <a
           className={styles.ctaBtn}

@@ -1,0 +1,15 @@
+[build]
+  # 1. Le decimos que nuestro frontend está en la carpeta 'client'
+  base = "client"
+  command = "npm run build"
+  publish = "dist"
+
+[functions]
+  # 2. Como nuestra base es 'client', subimos un nivel (..) y entramos a 'server/functions'
+  directory = "../server/functions"
+
+[dev]
+  # 3. Le decimos cómo encender tu React localmente
+  command = "npm run dev --prefix client"
+  targetPort = 5173
+  port = 8888
